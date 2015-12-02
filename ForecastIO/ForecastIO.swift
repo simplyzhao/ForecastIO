@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol ForecastIODelegate {
+public protocol ForecastIODelegate: class {
     func handlesForecastResponse(response: ForecastResponse)
     func handlesForecastError(error: NSError)
 }
@@ -18,7 +18,7 @@ public class ForecastIO {
     public static let sharedInstance = ForecastIO()
     
     // Delegate
-    public var delegate: ForecastIODelegate?
+    public weak var delegate: ForecastIODelegate?
     
     // Forecast API required fields (https://developer.forecast.io/)
     private let apiKey: String = "f2fd4105de5163646596076704638ac2"
